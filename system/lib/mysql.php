@@ -11,6 +11,7 @@
 
         public $sql;
         public $query;
+
         private $num;
         private $data;
 

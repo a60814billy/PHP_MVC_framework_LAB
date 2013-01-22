@@ -14,10 +14,11 @@
             <li>public $_model</li>
             <li>public $_view</li>
             <li>public $_opdata</li>
+            <li>public $_defaultViewName</li>
         </ul>
         <h3>Function</h3>
         <ul>
-            <li>public function showTemplate($viewname)</li>            
+            <li>public function showTemplate($viewname=ControllerName+ActionName)</li>
         </ul>
         <h1>Model Class</h1>
         <h3>Variable</h3>
@@ -29,7 +30,7 @@
         <ul>
             <li>public function init()</li>
         </ul>
-        <h1>request class</h1>
+        <h1>lib_request class</h1>
         <h3>Variable</h3>
         <h3>Function</h3>
         <ul>
@@ -50,10 +51,19 @@
             <li>public function query($sql)</li>
             <li>public function getNum()</li>
             <li>public function getData()</li>
+            <li>public function getAllData($table)</li>
             <li>public function insert($table , $data)</li>
             <li>public function delete($table , $id)</li>
             <li>public function update($table , $data)</li>
-            <li>public function getAllData($table)</li>
+        </ul>
+        <h1>lib_route</h1>
+        <h3>Variable</h3>
+        <ul>
+        <li>public $config</li>
+        <li>public $controller</li>
+        <li>public $action</li>
+        <li>public $para</li>
+        <li>public $url</li>
         </ul>
     </body>
 </html>

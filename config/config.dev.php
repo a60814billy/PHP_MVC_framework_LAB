@@ -1,7 +1,7 @@
 <?php
     //路由設定
     $CONFIG['system']['route'] = array(
-        'dufault_controller'    => 'index',
+        'dufault_controller'    => 'guestbook',
         'default_action'        => 'index',
         'post_str'              => '.php',
         'rewrite'               => FALSE
@@ -17,9 +17,9 @@
     //資料庫設定
     $CONFIG['system']['database'] = array(
         'hostname'  =>  'localhost',
-        'username'  =>  '',
-        'password'  =>  '',
-        'database'  =>  ''
+        'username'  =>  'guestbook',
+        'password'  =>  'vH4XbpHDHFCKyRGf',
+        'database'  =>  'guestbook'
     );
 
     //其他設定
