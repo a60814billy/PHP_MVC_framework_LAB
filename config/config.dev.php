@@ -1,25 +1,33 @@
 <?php
-    //¸ô¥Ñ³]©w
+    //è·¯ç”±è¨­å®š
     $CONFIG['system']['route'] = array(
         'dufault_controller'    => 'index',
         'default_action'        => 'index',
-        'post_str'              => '.php'
+        'post_str'              => '.php',
+        'rewrite'               => FALSE
     );
-    //»Ý¸ü¤J¤§¨ç¦¡®w
+    //éœ€è¼‰å…¥ä¹‹å‡½å¼åº«
     $CONFIG['system']['lib'] = array(
         'mysql'     =>  'lib_mysql',
-        'request'   =>  'lib_requests'
+        'request'   =>  'lib_requests',
+        'debug'     =>  'debug',
+        'message'   =>  'debug'
     );
-	//¸ê®Æ®w³]©w
+
+    //è³‡æ–™åº«è¨­å®š
     $CONFIG['system']['database'] = array(
         'hostname'  =>  'localhost',
-        'username'  =>  'bookorder',
-        'password'  =>  '2F9DAmE9HVZ4N6EH',
-        'database'  =>  'bookorder'
+        'username'  =>  '',
+        'password'  =>  '',
+        'database'  =>  ''
     );
-	//¨ä¥L³]©w
+
+    //å…¶ä»–è¨­å®š
     $CONFIG['system']['other'] = array(
-        //'debug_mode'=>  TRUE
+        'debug_mode'=>  TRUE
     );
-    
+
+
+    error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT ^ E_NOTICE);
+    ini_set("display_errors" , "On");
 ?>

@@ -1,8 +1,8 @@
 <?php
-    $EVN = 'develop';
+    $EVN = 'product';   
     $EVN = 'test';
-    $EVN = 'product';     
- 
+    $EVN = 'develop';
+
     switch($EVN){
         case 'develop':
             include_once "config.dev.php";

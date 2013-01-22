@@ -2,7 +2,14 @@
 
     define('SYS_ROOT' , dirname(__FILE__) );
     define('ROOT' , substr(SYS_ROOT , 0 , -7));
-    define('WEB_ROOT' , dirname($_SERVER['PHP_SELF']));
+
+    if(dirname($_SERVER['PHP_SELF'])=='\\'){
+        define('WEB_ROOT' , '.');
+    }else{
+        define('WEB_ROOT' , dirname($_SERVER['PHP_SELF']));
+    }
+
+    define('REWRITE' , $CONFIG['system']['route']['rewrite']);
 
 
     function debug_show($object){
@@ -12,7 +19,10 @@
     }
 
     function conver_url($url){
-        // ./index.php?controller=xxx&action=OOO     
+        if(!REWRITE){
+            return $url;
+        }
+        // ./index.php?controller=xxx&action=OOO
         $tmp = mb_split("\?" , $url);
         $tmp2 = mb_split("&" , $tmp[1]);
         $url = WEB_ROOT."/";
@@ -32,8 +42,7 @@
                 $tmp3 = mb_split("=" , $value);
                 $url .= $tmp3[1].'/';
             }    
-        }
-        
+        }        
         return $url;
     }
 
@@ -45,7 +54,7 @@
         public static $_request;
         public static $_controller;
         public function __construct(){
-           
+                       
         }
 
         public static function run($config){
@@ -68,7 +77,7 @@
                 self::$_controller = new $controller();
                 self::$_controller->setConfig(self::$_config);
                 self::$_controller->setRequest(self::$_request);
-                self::$_controller->setView();                
+                self::$_controller->setView(self::$_route->controller , self::$_route->action);                
                 if( file_exists( ROOT . '/app/Model/' . self::$_route->controller . '.php')){
                     require ROOT . '/app/Model/' . self::$_route->controller . '.php';
                     
@@ -85,7 +94,11 @@
         }
 
         public static function route(){
-            self::$_route = new lib_routere(self::$_config['route']);
+            if(self::$_config['route']['rewrite']){
+                self::$_route = new lib_routere(self::$_config['route']);
+            }else{
+                self::$_route = new lib_route(self::$_config['route']);
+            }
         }
 
         public static function loadOS(){

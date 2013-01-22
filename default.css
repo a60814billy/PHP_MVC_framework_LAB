@@ -1,0 +1,221 @@
+*{
+	margin:0px;
+    padding:0px;
+    font-family: "微軟正黑體","標楷體"; 
+}
+html ,body {
+    background:#FFF;
+    height:100%;
+    min-height:100%;
+}
+#wrap{
+    min-height: 100%;
+    height: auto;
+    padding-left: 200px;
+}
+#main{
+    padding-bottom: 75px;
+}
+#header{
+    padding-left: 80px;
+    padding-top: 15px;
+    height: 60px;
+    font-size: 28pt;
+}
+h1{
+    font-size: 28pt;
+    display: inline-block;
+}
+a{
+    color: #000;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration:underline; 
+}
+h1:hover{
+    border-bottom: 3px #000 solid;
+}
+#menu{
+    width: 200px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: #52acf0;
+    height:100%;
+    padding-top: 20px;
+    border-left-color: #dee9f1;
+    border-left-style: solid;
+    border-left-width: 1px;
+	z-index:20;
+}
+#menu h2{
+    margin-bottom: 15px;
+    margin-left: 20px;
+    color:#FFF;
+}
+#menu p{
+    margin-left: 20px;
+    color: #fff;
+}
+#menu ul{
+    list-style: none none;
+    position: absolute;
+    bottom: 70px;
+}
+#menu ul li a{
+    margin: 20px 0px;
+    padding-top: 10px;
+    padding-left: 20px;
+    width: 180px;
+    height: 35px;
+    text-align: left;
+    display: block;
+    color: #FFF;
+    text-decoration: none;
+}
+#menu ul li:hover{
+    background-color: #91c6ef;
+}
+#content{
+    padding: 10px 15px 10px 80px;
+}
+#message{
+    padding: 10px 8px;
+    margin: 10px 0px 20px;
+    border-left:4px solid #13145d;
+    background-color: #dee9f1;
+    display: block;
+    clear: both;
+}
+.books{
+    clear: both;
+    display: block;
+    margin-top: 25px;
+    width: 680px;
+    z-index: 1;
+    position: relative;
+}
+.worklist{
+    clear: both;
+    display: block;
+    margin-top: 25px;
+    width: 680px;
+    z-index: 1;
+    position: relative;
+}
+.choiselist{
+    clear: both;
+    display: block;
+    margin-top: 25px;
+    width: 600px;
+    z-index: 1;
+    position: relative;
+}
+.item{
+    display: block;
+    border-left: solid 3px #52acf0;
+    clear: both;
+    min-height: 25px;
+    padding-left: 15px;
+    padding-top: 5px;
+    margin: 10px 0px;
+}
+.item:hover{
+    background-color: #dee9f1;
+    border-left-color: #13145d;                
+}
+.tt{
+    border: none;
+    border-bottom: 1px solid #13145d;
+}
+.tt:hover{
+    background-color: #FFF;
+
+}            
+.item span{
+    padding-top: 3px 4px;
+    display: block;
+    float: left;
+    height: auto;
+}
+.item .sp1{
+    width: 80px;
+    text-align: left;
+    margin-right: 10px;
+}
+.item .sp2{
+    width: 240px;
+    text-align: left;
+    margin-right: 10px;
+}
+.item .sp3{
+    width: 100px;
+    text-align: left;
+    margin-right: 10px;
+}
+.item .sp4{
+    width: 60px;
+    text-align: center;
+    margin-right: 10px;
+}   
+.item .sp5{
+    width: 60px;
+    text-align: center;
+    margin-right: 10px;
+}        
+.item .cl{
+    clear: both;
+}
+input[type=submit]{
+    width: 80px;
+    height: 35px;
+    right: 5px;
+    position: absolute;
+}               
+input[type=button]{
+    width: 80px;
+    height: 35px;
+    right: 5px;
+    position: absolute;
+}
+#cover{
+    
+    z-index: 15;
+    background-color: rgb(128, 128, 128);
+    background-color: rgba(128, 128, 128, 0.85);
+    width: 650px;
+    height: 160px;
+    position: absolute;
+    float: left;
+    color: #FFF;
+    text-align: center;
+    padding-top: 140px;
+    font-size: 20pt;
+    margin-left: -15px;
+}       
+form{
+    clear: both;
+    padding-bottom: 40px;
+    position: relative;
+}
+form p label span{
+    display: inline-block;
+    width: 75px;
+    text-align: right;
+    margin-right: 15px;
+}
+form p label input{
+    width: 203px;
+    height: 20px;
+    padding: 3px 4px;
+}
+form p{
+    margin: 12px 0;
+}
+fieldset{
+    width: 650px;
+    position: static;
+    padding: 10px 15px;
+    margin-top: 15px;
+}
