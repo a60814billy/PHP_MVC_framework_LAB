@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Doc</title>
+    </head>
+    <body>
+        <h1>Controller Class</h1>
+        <h3>Variable</h3>
+        <ul>
+            <li>public $_config</li>
+            <li>public $_request</li>
+            <li>public $_model</li>
+            <li>public $_view</li>
+            <li>public $_opdata</li>
+        </ul>
+        <h3>Function</h3>
+        <ul>
+            <li>public function showTemplate($viewname)</li>            
+        </ul>
+        <h1>Model Class</h1>
+        <h3>Variable</h3>
+        <ul>
+            <li>public $_mysql</li>
+            <li>public $_config</li>
+        </ul>
+        <h3>Function</h3>
+        <ul>
+            <li>public function init()</li>
+        </ul>
+        <h1>request class</h1>
+        <h3>Variable</h3>
+        <h3>Function</h3>
+        <ul>
+            <li>public function isPost()</li>
+            <li>public function isAjax()</li>
+            <li>public function getPost($key , $stripTag = true)</li>
+            <li>public function getQuery($key , $stripTag = true)</li>
+        </ul>
+        <h1>lib_mysql Class</h1>
+        <h3>Variable</h3>
+        <ul>
+            <li>public $sql;</li>
+            <li>public $query;</li>
+        </ul>
+        <h3>Function</h3>
+        <ul>
+            <li>public function __construct($config)</li>
+            <li>public function query($sql)</li>
+            <li>public function getNum()</li>
+            <li>public function getData()</li>
+            <li>public function insert($table , $data)</li>
+            <li>public function delete($table , $id)</li>
+            <li>public function update($table , $data)</li>
+            <li>public function getAllData($table)</li>
+        </ul>
+    </body>
+</html>
