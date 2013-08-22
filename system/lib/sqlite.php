@@ -26,11 +26,13 @@
 		public function query($sql){
 			$this->sql = $sql;
 			$this->query = $this->_conn->query($this->sql);
+            $this->num = 0;
+            while($rs = $this->query->fetchArray()) $this->num++;
+            $this->query = $this->_conn->query($this->sql);
 			return $this->query;
 		}
 
 		public function getNum(){
-			$this->num = $this->query->num_rows;
 			return $this->num;
 		}
 
@@ -74,11 +76,10 @@
 
         public function getAllData($table){
             $this->sql = "SELECT * from `" . $table . "`";
-            $this->query = $this->_conn->query($this->sql);
-            $this->num = $this->query->num_rows;
+            $this->query($this->sql);
             $result = array();
-            if($this->num>0){
-                while($rs = $this->query->fetch_array()){
+            if($this->getNum()>0){
+                while($rs = $this->query->fetchArray()){
                     $result[] = $rs;
                 }    
             }
@@ -92,7 +93,7 @@
         public function getDatas(){
         	$result = array();
         	if($this->getNum()>0){
-        		while($rs = $this->query->fetch_array()){
+        		while($rs = $this->query->fetchArray()){
         			$result[] = $rs;
         		}
         	}
