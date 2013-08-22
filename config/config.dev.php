@@ -17,16 +17,15 @@
 
     //資料庫設定
     $CONFIG['system']['database'] = array(
-        'hostname'  =>  'localhost',
-        'username'  =>  'guestbook',
-        'password'  =>  'vH4XbpHDHFCKyRGf',
-        'database'  =>  'guestbook'
+        'sql_engine'=>  'sqlite', //T: Thu, 22 Aug 2013 22:53:14 
+        'hostname'  =>  '',
+        'username'  =>  '',
+        'password'  =>  '',
+        'database'  =>  '.ht.guestbook.db'
     );
-
     //其他設定
     $CONFIG['system']['other'] = array(
         'debug_mode'=>  TRUE,
-        'sql_engine'=>  'mysqli'
     );
 
 

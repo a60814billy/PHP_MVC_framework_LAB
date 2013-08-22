@@ -9,13 +9,13 @@ class guestbookModel extends OS_Model{
             'content'   =>  $content,
             'datetime'  =>  date('Y-m-d h:m:s')
         );
-        $id = $this->_mysql->insert('record' ,$data);
+        $id = $this->_db->insert('record' ,$data);
         return $id;
     }
 
     function getAllRecord(){
         $this->init();
-        return $this->_mysql->getAllData('record');
+        return $this->_db->getAllData('record');
     }
 
 }

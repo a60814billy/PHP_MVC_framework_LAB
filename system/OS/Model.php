@@ -2,7 +2,8 @@
 
 abstract class OS_Model{
         
-    public $_mysql;
+    public $_db;
+
     public $_config;
     private $_initflag;
         
@@ -12,8 +13,8 @@ abstract class OS_Model{
     }
     public final function init(){
         if(!$this->_initflag){
-            $sql_engine = "lib_".$this->_config['other']['sql_engine'];
-            $this->_mysql = new $sql_engine($this->_config['database']);
+            $sql_engine = "lib_". $this->_config['database']['sql_engine'];
+            $this->_db = new $sql_engine($this->_config['database']);
             $this->_initflag = TRUE;
         }
     }
