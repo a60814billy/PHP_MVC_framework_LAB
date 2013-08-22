@@ -12,5 +12,6 @@
             <input type="submit" />
         </form>
         <a href="<?=$data['url']?>" >Hyperlink test</a>
+        <a href="<?=$data['guestbook_url']?>">Guestbook sample</a>
     </body>
 </html>

@@ -35,11 +35,12 @@
             // 為true時，開啟rewrite ，會將網址變成 ./demo/login
             // 為false時，不轉換
             $this->_opdata['url'] = conver_url("./index.php?controller=demo&action=login");
+            $this->_opdata['guestbook_url'] = conver_url("./index.php?controller=guestbook");
 
 
             // 使用showTemplate function 載入樣板，並將 $_opdata內容傳送至樣板；
             // 樣板內使用 $data 讀取資料 ($data = $_output)
-            $this->showTemplate('test_index');
+            $this->showTemplate();
         }
 
         public function login(){
@@ -47,7 +48,10 @@
             $this->_model->test();
             echo "login";
             $this->_opdata['message'] = "This page is login page";
-            $this->showTemplate('test_index');
+            if($this->_request->isPost()){
+                $this->index();
+            }
+            $this->showTemplate('index');
         }
 
 

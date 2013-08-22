@@ -1,7 +1,7 @@
 <?php
     //路由設定
     $CONFIG['system']['route'] = array(
-        'dufault_controller'    => 'guestbook',
+        'dufault_controller'    => 'demo',
         'default_action'        => 'index',
         'post_str'              => '.php',
         'rewrite'               => FALSE
@@ -26,7 +26,7 @@
     //其他設定
     $CONFIG['system']['other'] = array(
         'debug_mode'=>  TRUE,
-        'sql_engine'=>  'mysql'
+        'sql_engine'=>  'mysqli'
     );
 
 

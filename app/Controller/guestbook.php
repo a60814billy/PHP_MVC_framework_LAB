@@ -12,7 +12,7 @@ class guestbookController extends OS_Controller{
     function add(){
         if($this->_request->isPost()){
             $this->_model->addRecord($this->_request->getPost('name') , $this->_request->getPost('content'));
-            header('Location:'.conver_url('./index.php'));
+            header('Location:'.conver_url('./index.php?controller=guestbook'));
         }
     }
 
