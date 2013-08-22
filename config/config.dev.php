@@ -9,6 +9,7 @@
     //需載入之函式庫
     $CONFIG['system']['lib'] = array(
         'mysql'     =>  'lib_mysql',
+        'mysqli'    =>  'lib_mysqli',
         'request'   =>  'lib_requests',
         'debug'     =>  'debug',
         'message'   =>  'debug'
@@ -24,7 +25,8 @@
 
     //其他設定
     $CONFIG['system']['other'] = array(
-        'debug_mode'=>  TRUE
+        'debug_mode'=>  TRUE,
+        'sql_engine'=>  'mysql'
     );
 
 

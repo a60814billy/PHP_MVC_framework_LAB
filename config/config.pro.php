@@ -7,7 +7,8 @@
     );
     
     $CONFIG['system']['lib'] = array(
-        'mysql'     =>  'lib_mysql',
+        'mysql'     =>  'lib_mysql',
+        'mysqli'    =>  'lib_mysqli',
         'request'   =>  'lib_requests'
     );
 
@@ -19,6 +20,7 @@
     );
     $CONFIG['system']['other'] = array(
         'debug_mode'=>  FALSE
+        'sql_engine'=>  'mysqli'
     );
     error_reporting(E_ALL ^ E_NOTICE);
     ini_set("display_errors" , "Off");
