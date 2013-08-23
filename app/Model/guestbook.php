@@ -3,7 +3,7 @@
 class guestbookModel extends OS_Model{
 
     function addRecord($name , $content){
-        $this->init();
+        //$this->init();
         $data = array(
             'name'      =>  $name,
             'content'   =>  $content,
@@ -14,7 +14,7 @@ class guestbookModel extends OS_Model{
     }
 
     function getAllRecord(){
-        $this->init();
+        //$this->init();
         return $this->_db->getAllData('record');
     }
 

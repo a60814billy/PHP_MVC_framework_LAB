@@ -53,7 +53,9 @@
             $sql .= $sql2;
             $sql = substr($sql , 0 , -1);
             $sql .=');';
-            $this->query($sql);
+            // var_dump($sql);
+            // exit;
+            $this->_conn->query($sql);
             return $this->_conn->insert_id;
 		}
 
