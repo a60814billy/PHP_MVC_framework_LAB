@@ -1,2 +1,6 @@
 /web.config
 /robots.txt
+
+*.sublime-project
+
+*.sublime-workspace

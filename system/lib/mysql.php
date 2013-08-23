@@ -82,6 +82,21 @@
             return $result;
         }
 
+        /**
+         * 取得查詢結果
+         * @return Array 查詢結果
+         */
+        public function getDatas(){
+            $result = array();
+            if($this->getNum()>0){
+                while($rs = mysql_fetch_array($this->query)){
+                    $result[] = $rs;
+                }
+            }
+            return $result;
+        }
+
+
     }
     
 ?>
