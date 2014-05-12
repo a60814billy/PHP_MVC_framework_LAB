@@ -11,6 +11,8 @@
 
     define('REWRITE' , $CONFIG['system']['route']['rewrite']);
 
+    Log::write("WEB_ROOT: " . WEB_ROOT);
+    Log::write("REWRITE : " . REWRITE);
 
     function debug_show($object){
         echo '<pre>';
@@ -60,9 +62,13 @@
         public static function run($config){
             self::$_config = $config;
             spl_autoload_register( array('Loader' , 'autoload') );
+            Log::write("Load OS");
             self::loadOS();
+            Log::write("Load Route");
             self::route();
+            Log::write("Load Request");
             self::request();
+            Log::write("Attach to Controller");
             self::attach_Controller();
         }
 
@@ -72,6 +78,7 @@
             $model = self::$_route->controller . 'Model';
             $action = self::$_route->action;
 
+            Log::write("Dispatch to " . $controller . "/" . $action);
             if( file_exists( ROOT.'/app/Controller/' .self::$_route->controller . '.php') ){
                 require ROOT.'/app/Controller/' . self::$_route->controller . '.php';
                 self::$_controller = new $controller();
@@ -85,30 +92,37 @@
                 }
                 self::$_controller->$action();
             }else{
-                throw new Exception(" Controller " . $controller . " not exist");
+                Log::write("Controller " . $controller . " not exist" , 3);
+                throw new Exception("Controller " . $controller . " not exist");
             }
         }
 
         public static function request(){
+            Log::write("-Load lib_request");
             self::$_request = new lib_request();
         }
 
         public static function route(){
             if(self::$_config['route']['rewrite']){
+                Log::write("-Load lib_routere");
                 self::$_route = new lib_routere(self::$_config['route']);
             }else{
+                Log::write("-Load lib_route");
                 self::$_route = new lib_route(self::$_config['route']);
             }
         }
 
         public static function loadOS(){
+            Log::write("-Load OS Controller");
             require SYS_ROOT.'/OS/Controller.php';
+            Log::write("-Load OS Model");
             require SYS_ROOT.'/OS/Model.php';
         }
 
         public static function autoload($classnane){
             $file = SYS_ROOT.'/'.str_replace("_" , "/" , $classnane ) . '.php';
             if(file_exists($file)){
+                Log::write("AutoLoad: " . $classnane);
                 require_once $file;
             }else{
                 die('error on file : ' . $file);

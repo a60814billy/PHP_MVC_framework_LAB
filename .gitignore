@@ -1,5 +1,6 @@
 /web.config
 /robots.txt
+/log/*.log
 
 *.sublime-project
 

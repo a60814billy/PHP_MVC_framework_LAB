@@ -28,6 +28,10 @@
         'debug_mode'=>  TRUE,
     );
 
+    $CONFIG['system']['log'] = array(
+        'filepattern'   =>  'Ymd'
+    );
+
 
     error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT ^ E_NOTICE);
     ini_set("display_errors" , "On");
