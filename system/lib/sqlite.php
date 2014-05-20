@@ -28,8 +28,16 @@
             $this->num = 0;
             while($rs = $this->query->fetchArray()) $this->num++;
             $this->query = $this->_conn->query($this->sql);
+            Log::write("--(query) SQL Statement:" . $sql);
 			return $this->query;
 		}
+
+        public function exec($sql){
+            $this->sql = $sql;
+            $this->num = 0;
+            Log::write("--(exec) SQL Statement:" . $sql);
+            return $this->_conn->exec($this->sql);
+        }
 
 		public function getNum(){
 			return $this->num;
@@ -53,12 +61,14 @@
             $sql = substr($sql , 0 , -1);
             $sql .=');';
             $this->_conn->query($sql);
+            Log::write("--(insert) SQL Statement:" . $sql);
             return $this->_conn->insert_id;
 		}
 
 		public function delete($table , $id){
 			$sql = "delete from `$table` WHERE `id`=$id;";
 			$this->_conn->query($sql);
+            Log::write("--(delete) SQL Statement:" . $sql);
 		}
 
 		public function update($table , $data){
@@ -71,6 +81,7 @@
             $sql = substr($sql , 0 , -1);
             $sql .= " WHERE `id` = ".$data['id'];
             $this->_conn->query($sql);
+            Log::write("--(update) SQL Statement:" . $sql);
         }
 
         public function getAllData($table){
@@ -82,6 +93,7 @@
                     $result[] = $rs;
                 }    
             }
+            Log::write("--(getAllData) SQL Statement:" . $sql);
             return $result;
         }
 
@@ -98,5 +110,4 @@
         	}
         	return $result;
         }
-
 	}
