@@ -1,6 +1,6 @@
 <?php
 
-class guestbookController extends OS_Controller{
+class guestbookController extends Controller{
     
 
     function index(){

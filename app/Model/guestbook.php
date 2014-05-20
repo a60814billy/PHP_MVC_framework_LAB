@@ -1,6 +1,6 @@
 <?php
     
-class guestbookModel extends OS_Model{
+class guestbookModel extends Model{
 
     function addRecord($name , $content){
         //$this->init();

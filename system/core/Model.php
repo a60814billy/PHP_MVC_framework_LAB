@@ -1,6 +1,6 @@
 <?php
 
-abstract class OS_Model{
+abstract class Model{
         
     public $_db;
 

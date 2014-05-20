@@ -1,7 +1,7 @@
 <?php
     // class 名稱為 檔名+Model ，需繼承OS_Model類別
     // Model 需有對應 Controller  
-    class demoModel extends OS_Model{
+    class demoModel extends Model{
         // 模組內不能有 public function init()方法，因為init方法為初始化mysql連線用
 
         public function test(){

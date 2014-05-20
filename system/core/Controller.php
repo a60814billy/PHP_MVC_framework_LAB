@@ -1,6 +1,6 @@
 <?php
 
-abstract class OS_Controller{
+abstract class Controller{
         
     public  $_config;
     public  $_request;

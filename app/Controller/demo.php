@@ -2,7 +2,7 @@
     // class 名稱為 檔名+Controller ，並繼承OS_Controller Class
     // Controller 與 Model 檔名需一致
     // 當有需要使用到 mysql 時，須建立Model
-    class demoController extends OS_Controller{
+    class demoController extends Controller{
 
         //action = index 進入點
         public function index(){

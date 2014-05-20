@@ -1,6 +1,7 @@
 /web.config
 /robots.txt
 /log/*.log
+/.idea/*
 
 *.sublime-project
 

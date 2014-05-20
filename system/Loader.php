@@ -63,7 +63,7 @@
             self::$_config = $config;
             spl_autoload_register( array('Loader' , 'autoload') );
             Log::write("Load OS");
-            self::loadOS();
+            self::loadCoreFiles();
             Log::write("Load Route");
             self::route();
             Log::write("Load Request");
@@ -112,11 +112,11 @@
             }
         }
 
-        public static function loadOS(){
+        public static function loadCoreFiles(){
             Log::write("-Load OS Controller");
-            require SYS_ROOT.'/OS/Controller.php';
+            require SYS_ROOT.'/core/Controller.php';
             Log::write("-Load OS Model");
-            require SYS_ROOT.'/OS/Model.php';
+            require SYS_ROOT.'/core/Model.php';
         }
 
         public static function autoload($classnane){
@@ -128,7 +128,6 @@
                 die('error on file : ' . $file);
             }
         }
-
     }
-    
+
 ?>
