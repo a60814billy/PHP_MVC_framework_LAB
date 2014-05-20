@@ -16,11 +16,10 @@
 
 		public function __construct($config){
 			$this->_dbna = $config["database"];
-			$this->_conn = new SQLite3($config["database"]);
+			$this->_conn = new SQLite3($this->_dbna);
 			if($this->_conn->connect_error){
 				die("Error to connect to sql server.");
 			}
-			//$this->_conn->query("SET NAMES utf8");
 		}
 
 		public function query($sql){
@@ -37,7 +36,7 @@
 		}
 
 		public function getData(){
-			return $this->query->fetch_array();
+			return $this->query->fetchArray();
 		}
 
 
@@ -53,8 +52,6 @@
             $sql .= $sql2;
             $sql = substr($sql , 0 , -1);
             $sql .=');';
-            // var_dump($sql);
-            // exit;
             $this->_conn->query($sql);
             return $this->_conn->insert_id;
 		}
