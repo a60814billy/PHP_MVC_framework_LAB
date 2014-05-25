@@ -40,7 +40,6 @@
 
             // 使用showTemplate function 載入樣板，並將 $_opdata內容傳送至樣板；
             // 樣板內使用 $data 讀取資料 ($data = $_output)
-            $this->showTemplate();
         }
 
         public function login(){
@@ -51,8 +50,7 @@
             if($this->_request->isPost()){
                 $this->index();
             }
-            $this->showTemplate('index');
+            $this->setCustomView('index');
         }
-
 
     }

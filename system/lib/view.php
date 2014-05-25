@@ -8,9 +8,11 @@
         }
 
         public function init( $viewfile , $data ){
-            $this->_viewfile=  $viewfile;
+            $this->_viewfile = $viewfile;
+            Log::write("-ViewName: ".$this->_viewfile);
+            debug::addMessage(new message('ViewName: +' + $viewfile));
             if(file_exists($this->_viewfile)){
-                ob_start();    
+                ob_start();
                 include( $this->_viewfile);
                 if($this->_config['other']['debug_mode']){
                     debug::addMessage(new message('debug Mode Enable'));
@@ -25,7 +27,7 @@
             }
         }
 
-        public function rander(){
+        public function render(){
             echo $this->_content;
         }
     }

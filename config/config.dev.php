@@ -4,20 +4,12 @@
         'dufault_controller'    => 'demo',
         'default_action'        => 'index',
         'post_str'              => '.php',
-        'rewrite'               => FALSE
-    );
-    //需載入之函式庫
-    $CONFIG['system']['lib'] = array(
-        'mysql'     =>  'lib_mysql',
-        'mysqli'    =>  'lib_mysqli',
-        'request'   =>  'lib_requests',
-        'debug'     =>  'debug',
-        'message'   =>  'debug'
+        'rewrite'               => TRUE
     );
 
     //資料庫設定
     $CONFIG['system']['database'] = array(
-        'sql_engine'=>  'sqlite', //T: Thu, 22 Aug 2013 22:53:14 
+        'sql_engine'=>  'sqlite',
         'hostname'  =>  '',
         'username'  =>  '',
         'password'  =>  '',

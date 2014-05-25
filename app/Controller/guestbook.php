@@ -6,7 +6,6 @@ class guestbookController extends Controller{
     function index(){
         $this->_opdata['add'] = conver_url('./index.php?controller=guestbook&action=add');
         $this->_opdata['records'] = $this->_model->getAllRecord();
-        $this->showTemplate();
     }
 
     function add(){

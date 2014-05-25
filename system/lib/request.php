@@ -6,6 +6,11 @@
         public function __construct(){
             
         }
+
+        public function isDelete(){
+            return (bool)( 'DELETE' == $_SERVER['REQUEST_METHOD']);
+        }
+
         public function isPost(){
             return (bool)( 'POST' == $_SERVER['REQUEST_METHOD']);
         }

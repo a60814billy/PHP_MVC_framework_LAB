@@ -12,7 +12,7 @@
     define('REWRITE' , $CONFIG['system']['route']['rewrite']);
 
     Log::write("WEB_ROOT: " . WEB_ROOT);
-    Log::write("REWRITE : " . REWRITE);
+    Log::write("ROOT: " . ROOT);
 
     function debug_show($object){
         echo '<pre>';
@@ -56,7 +56,7 @@
         public static $_request;
         public static $_controller;
         public function __construct(){
-                       
+
         }
 
         public static function run($config){
@@ -87,10 +87,9 @@
                 self::$_controller->setView(self::$_route->controller , self::$_route->action);                
                 if( file_exists( ROOT . '/app/Model/' . self::$_route->controller . '.php')){
                     require ROOT . '/app/Model/' . self::$_route->controller . '.php';
-                    
                     self::$_controller->setModel($model);
                 }
-                self::$_controller->$action();
+                self::$_controller->_action($action);
             }else{
                 Log::write("Controller " . $controller . " not exist" , 3);
                 throw new Exception("Controller " . $controller . " not exist");
