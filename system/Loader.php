@@ -55,12 +55,16 @@
         public static $_route;
         public static $_request;
         public static $_controller;
+
+        public static $_libmapping;
+
         public function __construct(){
 
         }
 
         public static function run($config){
             self::$_config = $config;
+            self::$_libmapping = $config['lib'];
             spl_autoload_register( array('Loader' , 'autoload') );
             Log::write("Load OS");
             self::loadCoreFiles();
@@ -119,12 +123,17 @@
         }
 
         public static function autoload($classnane){
-            $file = SYS_ROOT.'/'.str_replace("_" , "/" , $classnane ) . '.php';
+            if(!empty(self::$_libmapping[$classnane])){
+                $file = SYS_ROOT . '/' . self::$_libmapping[$classnane] . '.php';
+            }else{
+                $file = SYS_ROOT.'/'.str_replace("_" , "/" , $classnane ) . '.php';
+            }
             if(file_exists($file)){
                 Log::write("AutoLoad: " . $classnane);
                 require_once $file;
             }else{
-                die('error on file : ' . $file);
+                Log::write("AutoLoad: " . $classnane . " not found" , 3);
+                //die('error on file : ' . $file);
             }
         }
     }
