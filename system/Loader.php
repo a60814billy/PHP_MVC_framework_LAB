@@ -72,6 +72,8 @@
             self::route();
             Log::write("Load Request");
             self::request();
+            Log::write("Load Helper");
+            self::loadhelper();
             Log::write("Attach to Controller");
             self::attach_Controller();
         }
@@ -97,6 +99,18 @@
             }else{
                 Log::write("Controller " . $controller . " not exist" , 3);
                 throw new Exception("Controller " . $controller . " not exist");
+            }
+        }
+
+        public static function loadhelper(){
+            Helper::setConfig(self::$_config);
+            Helper::setcontroller(self::$_route->controller);
+            foreach(self::$_config['usehelper'] as $value){
+                Log::write("Load Helper:" . $value );
+                $file = SYS_ROOT . '/helper/' . $value . '.php';
+                if(is_file($file)){
+                    require_once($file);
+                }
             }
         }
 
@@ -135,6 +149,7 @@
                 Log::write("AutoLoad: " . $classnane . " not found" , 3);
                 //die('error on file : ' . $file);
             }
+            Log::write("AutoLoad Filename:" . $file);
         }
     }
 

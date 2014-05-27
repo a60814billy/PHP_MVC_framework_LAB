@@ -6,7 +6,7 @@
 
         //action = index 進入點
         public function index(){
-            echo "Hi";
+
             //輸出資料方式，使用 $_opdata 變數
             $this->_opdata['test'] = "World";
 
@@ -29,13 +29,11 @@
                 //如果為post請求，輸出傳入之DATA值
                 $this->_opdata['message'] = "The Input Data is ".$this->_request->getPost('test' , FALSE);    
             }
-            
-            // conver_url 函式會將url轉成rewrite的樣式
-            // 需在config中設定$CONFIG['system']['route']['rewrite']值
-            // 為true時，開啟rewrite ，會將網址變成 ./demo/login
-            // 為false時，不轉換
-            $this->_opdata['url'] = conver_url("./index.php?controller=demo&action=login");
-            $this->_opdata['guestbook_url'] = conver_url("./index.php?controller=guestbook");
+
+            // 使用url Helper會自動判斷有沒有啟用REWRITE，產生不同的網址
+            // url(ActionName, ControllerName, Parameter);
+            $this->_opdata['url'] = url('login' , 'demo');
+            $this->_opdata['guestbook_url'] = url('index' , 'guestbook');
 
 
             // 使用showTemplate function 載入樣板，並將 $_opdata內容傳送至樣板；

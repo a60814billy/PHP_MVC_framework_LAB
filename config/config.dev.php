@@ -19,7 +19,13 @@
         // default view lib
         'lib_view'      =>  'lib/view',
         // Enhanced password hash function
-        'Cryptography'  =>  'lib/cryptography'
+        'Cryptography'  =>  'lib/cryptography',
+        // Helper
+        'Helper'        =>  'helper/base',
+    );
+
+    $CONFIG['system']['usehelper'] = array(
+        'url'
     );
 
     //資料庫設定
