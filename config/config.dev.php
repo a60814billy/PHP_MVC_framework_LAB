@@ -25,7 +25,8 @@
     );
 
     $CONFIG['system']['usehelper'] = array(
-        'url'
+        'url', // url helper , redirect, url function
+        'view' // view helper , resource
     );
 
     //資料庫設定

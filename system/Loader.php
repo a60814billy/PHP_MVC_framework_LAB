@@ -68,14 +68,44 @@
             spl_autoload_register( array('Loader' , 'autoload') );
             Log::write("Load OS");
             self::loadCoreFiles();
-            Log::write("Load Route");
-            self::route();
-            Log::write("Load Request");
-            self::request();
-            Log::write("Load Helper");
-            self::loadhelper();
-            Log::write("Attach to Controller");
-            self::attach_Controller();
+
+            if(PHP_SAPI == 'cli'){
+                // CLI Mode
+                Log::write("CLI Mode");
+
+                $argv = $_SERVER['argv'];
+                $cliHandler = $argv[1];
+                $cliAction = $argv[2];
+
+                if(empty($cliHandler)){
+                    $cliHandler = "test";
+                }
+                if(empty($cliAction)){
+                    $cliAction = "main";
+                }
+
+                if(is_file(ROOT . '/app/CLI/' . $cliHandler . '.php')){
+                    include_once(ROOT . '/app/CLI/' . $cliHandler . '.php');
+                    $cn = $cliHandler . "CLI";
+                    Log::write("CLI name:" . $cn);
+                    $cli = new $cn();
+                    $cli->setArgv($argv);
+                    $cli->$cliAction();
+                }else{
+                    Log::write("No CLI Handler file:" . (ROOT . '/app/CLI/' . $cliHandler . '.php') , 3);
+                }
+            }else{
+                // Web Mode
+                Log::write("Web Mode");
+                Log::write("Load Route");
+                self::route();
+                Log::write("Load Request");
+                self::request();
+                Log::write("Load Helper");
+                self::loadhelper();
+                Log::write("Attach to Controller");
+                self::attach_Controller();
+            }
         }
 
         public static function attach_Controller(){
@@ -130,10 +160,12 @@
         }
 
         public static function loadCoreFiles(){
-            Log::write("-Load OS Controller");
+            Log::write("-Load core Controller");
             require SYS_ROOT.'/core/Controller.php';
-            Log::write("-Load OS Model");
+            Log::write("-Load core Model");
             require SYS_ROOT.'/core/Model.php';
+            Log::write("-Load core CLI");
+            require SYS_ROOT.'/core/CLIHandler.php';
         }
 
         public static function autoload($classnane){

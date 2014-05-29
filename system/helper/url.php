@@ -12,7 +12,7 @@ function redirect($action , $controller = null){
     header("Location: " . $url);
 }
 
-function url($action , $controller , $parameter = null){
+function url($action , $controller , $parameter = null, $view = false){
     if(!empty($parameter)){
         $query = http_build_query($parameter);
     }
@@ -21,5 +21,8 @@ function url($action , $controller , $parameter = null){
     }else{
         $url = WEB_ROOT . "/index.php?controller=" . $controller . "&action=" . $action . "&" . $query;
     }
-    return $url;
+    if(!$view){
+        return $url;
+    }
+    echo $url;
 }
